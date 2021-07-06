@@ -1,12 +1,12 @@
 USE [master]
 GO
-/****** Object:  Database [ExampleDatabase]    Script Date: 7/5/2021 2:11:21 PM ******/
+/****** Object:  Database [ExampleDatabase]    Script Date: 7/6/2021 9:58:05 AM ******/
 CREATE DATABASE [ExampleDatabase]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'exampleDatabase', FILENAME = N'C:\Users\emmateva18\exampleDatabase.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+( NAME = N'ExampleDatabase', FILENAME = N'C:\Users\emmateva18\ExampleDatabase.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
  LOG ON 
-( NAME = N'exampleDatabase_log', FILENAME = N'C:\Users\emmateva18\exampleDatabase_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'ExampleDatabase_log', FILENAME = N'C:\Users\emmateva18\ExampleDatabase_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
@@ -73,7 +73,7 @@ ALTER DATABASE [ExampleDatabase] SET DELAYED_DURABILITY = DISABLED
 GO
 USE [ExampleDatabase]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 7/5/2021 2:11:21 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 7/6/2021 9:58:06 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -86,14 +86,14 @@ CREATE TABLE [dbo].[Users](
 	[Email] [varchar](320) NOT NULL,
 	[Address] [nvarchar](64) NULL,
 	[City] [nvarchar](32) NULL,
-	[Age] [int] NULL,
+	[Age] [tinyint] NULL,
  CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [CK_Users_Age] CHECK  (([Age]>=(0) AND [Age]<=(130)))
+ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [CK_Users_Age] CHECK  (([Age]>=(0) AND [Age]<=(122)))
 GO
 ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [CK_Users_Age]
 GO
