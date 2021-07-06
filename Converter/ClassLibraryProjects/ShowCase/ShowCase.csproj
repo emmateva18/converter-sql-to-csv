@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StringLibrary\StringLibrary.csproj" />
+    <ProjectReference Include="..\StringLibrary\ConverterLibrary.csproj" />
   </ItemGroup>
 
 </Project>

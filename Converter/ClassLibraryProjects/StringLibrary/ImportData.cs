@@ -4,7 +4,7 @@ using System.Text;
 using System.Linq;
 using System.Data;
 
-namespace AdventureData
+namespace ConverterLibrary
 {
     public class ImportData
     {
