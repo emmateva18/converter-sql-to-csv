@@ -11,7 +11,7 @@
 
 <a name="desc"></a>
 ## 1. Description
-We have created a converter that converts data from a database to a .CSV format
+We have created a converter that exports data from database to a .CSV format
 
 
 
@@ -27,8 +27,9 @@ We have created a converter that converts data from a database to a .CSV format
 <a name="technologies"></a>
 
 ## 4. Used technologies
-* .NET Core
+* .NET
 * MSSQL
-* HTML5, CSS3
+* VisualStudio 2019
+* SSMS
 * PowerPoint
 * Github
