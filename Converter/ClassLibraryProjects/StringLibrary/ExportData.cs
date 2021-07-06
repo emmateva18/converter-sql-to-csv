@@ -26,8 +26,11 @@ namespace ConverterLibrary
                     field => field.ToString());
                 sb.AppendLine(string.Join(",", fields));
             }
+            string docPath = System.IO.Path.GetDirectoryName("AllUsers.txt");
 
-            File.WriteAllText(strFilePath, sb.ToString());
+            // For putting file in Documents
+            // string docPath = Environment.GetFolderPath(Environment.SpecialFolder );
+            File.WriteAllText(Path.Combine(docPath, "Users.txt"), sb.ToString());
         }
     }
 }

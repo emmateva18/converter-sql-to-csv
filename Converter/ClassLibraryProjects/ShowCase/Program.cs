@@ -1,9 +1,17 @@
 ﻿using System;
-using ConverterLibrary;
+using System.Data;
 
-class Program
+namespace ConverterLibrary
 {
-    static void Main(string[] args)
+    class Program
     {
+        static void Main(string[] args)
+        {
+            const string productsFilePath = "C:\\converter-sql-to-csv";
+
+            DataTable dtProducts = ImportData.GetProducts();
+
+            ExportData.ToCSVWithFile(dtProducts, productsFilePath);
+        }
     }
 }
