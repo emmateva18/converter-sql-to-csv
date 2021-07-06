@@ -7,11 +7,10 @@ namespace ConverterLibrary
     {
         static void Main(string[] args)
         {
-            const string productsFilePath = "C:\\converter-sql-to-csv";
 
             DataTable dtProducts = ImportData.GetProducts();
 
-            ExportData.ToCSVWithFile(dtProducts, productsFilePath);
+            ExportData.ToCSVWithFile(dtProducts);
         }
     }
 }

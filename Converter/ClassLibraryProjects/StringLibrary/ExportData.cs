@@ -10,7 +10,7 @@ namespace ConverterLibrary
 {
     public class ExportData
     {
-        public static void ToCSVWithFile(DataTable dtDataTable, string strFilePath)
+        public static void ToCSVWithFile(DataTable dtDataTable)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -26,11 +26,12 @@ namespace ConverterLibrary
                     field => field.ToString());
                 sb.AppendLine(string.Join(",", fields));
             }
-            string docPath = System.IO.Path.GetDirectoryName("AllUsers.txt");
 
-            // For putting file in Documents
-            // string docPath = Environment.GetFolderPath(Environment.SpecialFolder );
-            File.WriteAllText(Path.Combine(docPath, "Users.txt"), sb.ToString());
+            // string docPath = System.IO.Path.GetDirectoryName("AllUsers.txt");
+
+            // For redirecting file on Desktop
+            string docPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop );
+            File.WriteAllText(Path.Combine(docPath, "Users.csv"), sb.ToString());
         }
     }
 }
