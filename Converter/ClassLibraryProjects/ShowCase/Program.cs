@@ -16,8 +16,7 @@ namespace ConverterLibrary
             path = Path.Combine(path, "export.csv");
 
             // Set delimiter
-            // To Do: Get delimiter from System
-            string delimiter = "|";
+            string delimiter = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
             // Load data from SQL db
             DataTable dtUsers = ImportData.loadUsers();
