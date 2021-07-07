@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace ConverterLibrary
 {
     public class ImportData
     {
-        public static DataTable GetProducts()
+        // Create table
+        public static DataTable getUsers()
         {
             DataTable dtUsers = new DataTable();
             dtUsers.Columns.Add("Id", typeof(int));
@@ -20,18 +22,63 @@ namespace ConverterLibrary
             dtUsers.Columns.Add("City", typeof(string));
             dtUsers.Columns.Add("Age", typeof(int));
 
-            dtUsers.Rows.Add(1, "wade_cain1973", "Rebecca", "Martin", "wade_cain1973@yahoo.com"
-                , "365 Tenmile", "Norfolk", 37 );
-            dtUsers.Rows.Add(2, "kasandra_hegma", "Penny", "Sanchez", "kasandra_hegma@gmail.com"
-                , "1216 Valley Drive", "Philadelphia", 20);
-            dtUsers.Rows.Add(3, "keanu_kund2", "Timothy", "Warden", "keanu_kund2@gmail.com"
-                , "384 Coleman Avenue", "San Diego", 22);
-            dtUsers.Rows.Add(4, "kevon_adam1", "Kevin", "Morris", "kevon_adam1@hotmail.com"
-                , "240 Settlers Lane", "Brooklyn", 28);
-            dtUsers.Rows.Add(5, "everette_leffl", "William", "Lewis", "everette_leffl@yahoo.com"
-                , "4034 Webster Street", "Robertsville", 39);
-            dtUsers.Rows.Add(6, "myrtie1982", "Angela", "Bowen", "myrtie1982@hotmail.com"
-                , "2232 Hinkle Lake Road", "Boston", 26);
+            return dtUsers;
+        }
+
+        // Import data from SQL db
+        public static DataTable loadUsers()
+        {
+
+            DataTable dtUsers = getUsers();
+
+            string connString = @"Server=(localdb)\MSSQLLocalDB; Database = master; Trusted_Connection = True;";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+
+                    string query = @"
+                        SELECT TOP (100) [Id]
+                              ,[Username]
+                              ,[FirstName]
+                              ,[LastName]
+                              ,[Email]
+                              ,[Address]
+                              ,[City]
+                              ,[Age]
+                          FROM [ExampleDatabase].[dbo].[Users]
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    //check if there are records
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            dtUsers.Rows.Add(dr.GetInt32("Id"), dr.GetString("Username"), dr.GetString("FirstName"), dr.GetString("LastName"),
+                                dr.GetString("Email"), dr.GetString("Address"), dr.GetString("City"), dr.GetInt32("Age"));
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //display error message
+                Console.WriteLine("Exception: " + ex.Message);
+            }
 
             return dtUsers;
         }
