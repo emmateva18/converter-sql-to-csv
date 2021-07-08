@@ -1,14 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.IO;
-using ConverterLibrary;
+using System.Linq;
 
 namespace ConverterLibrary
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             // Set path to Documents folder and file name to "export.csv"
@@ -18,12 +17,22 @@ namespace ConverterLibrary
             // Set delimiter
             string delimiter = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
-            // Load data from SQL db
-            DataTable dtUsers = ImportData.loadUsers();
+            List<Users> users = new List<Users>();
+            users.Add(new Users() { FirstName = "FN1" });
+            users.Add(new Users() { FirstName = "FN2" });
 
-            // Export the data in .csv file
-            ExportData.ToCSVWithFile(dtUsers, path, delimiter);
+            List<Bike> bikes = new List<Bike>();
+            bikes.Add(new Bike() { Name = "Bike1", Model = "Model 1", Year = 2020 });
+            bikes.Add(new Bike() { Name = "Bike2", Model = "Model 2", Year = 2021 });
+            bikes.Add(new Bike() { Name = "Bike3", Model = "Model 3", Year = 2019 });
 
+            string sep = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
+
+            ExportData.ListToCsv(bikes,path, sep);
+
+            //DataTable dtProducts = ImportData.GetProducts();
+
+            //ExportData.ToCSVWithFile(dtProducts, productsFilePath);
         }
     }
 }

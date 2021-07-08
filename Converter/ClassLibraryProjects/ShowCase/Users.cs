@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConverterLibrary  
+namespace ConverterLibrary
 {
+    public class Bike
+    {
+        public string Name { get; set; }
+        public string Model { get; set; }
+        public int Year { get; set; }
+    }
+
     public class Users
     {
         public int Id { get; set; }
