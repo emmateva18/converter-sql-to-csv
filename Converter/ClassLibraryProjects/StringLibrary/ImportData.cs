@@ -4,34 +4,20 @@ using System.Text;
 using System.Linq;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
+using System.ComponentModel.Design;
+using Entities;
 
 namespace ConverterLibrary
 {
     public class ImportData
     {
-        // Create table
-        public static DataTable getUsers()
-        {
-            DataTable dtUsers = new DataTable();
-            dtUsers.Columns.Add("Id", typeof(int));
-            dtUsers.Columns.Add("Username", typeof(string));
-            dtUsers.Columns.Add("FirstName", typeof(string));
-            dtUsers.Columns.Add("LastName", typeof(string));
-            dtUsers.Columns.Add("Email", typeof(string));
-            dtUsers.Columns.Add("Address", typeof(string));
-            dtUsers.Columns.Add("City", typeof(string));
-            dtUsers.Columns.Add("Age", typeof(int));
-
-            return dtUsers;
-        }
 
         // Import data from SQL db
-        public static DataTable loadUsers()
+        public static List<User> loadUsers()
         {
-
-            DataTable dtUsers = getUsers();
-
             string connString = @"Server=(localdb)\MSSQLLocalDB; Database = master; Trusted_Connection = True;";
+            List<User> users = new List<User>();
 
             try
             {
@@ -39,7 +25,7 @@ namespace ConverterLibrary
                 {
 
                     string query = @"
-                        SELECT TOP (100) [Id]
+                        SELECT [Id]
                               ,[Username]
                               ,[FirstName]
                               ,[LastName]
@@ -58,19 +44,31 @@ namespace ConverterLibrary
                     //execute the SQLCommand
                     SqlDataReader dr = cmd.ExecuteReader();
 
-                    //check if there are records
+                    // Check if there are records
                     if (dr.HasRows)
                     {
                         while (dr.Read())
                         {
-                            dtUsers.Rows.Add(dr.GetInt32("Id"), dr.GetString("Username"), dr.GetString("FirstName"), dr.GetString("LastName"),
-                                dr.GetString("Email"), dr.GetString("Address"), dr.GetString("City"), dr.GetInt32("Age"));
+                            User user = new User() 
+                            { 
+                                Id = dr.GetInt32("Id"),
+                                Username = dr.GetString("Username"),
+                                FirstName = dr.GetString("FirstName"),
+                                LastName = dr.GetString("LastName"),
+                                Email = dr.GetString("Email"),
+                                Address = dr.GetString("Address"),
+                                City = dr.GetString("City"),
+                                Age = dr.GetInt32("Age")
+                            };
+
+                            users.Add(user);
                         }
                     }
                     else
                     {
-                        Console.WriteLine("No data found.");
+                        //Console.WriteLine("No data found.");
                     }
+
                     dr.Close();
                 }
             }
@@ -80,7 +78,9 @@ namespace ConverterLibrary
                 Console.WriteLine("Exception: " + ex.Message);
             }
 
-            return dtUsers;
+            return users;
         }
     }
 }
+    
+
