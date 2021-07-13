@@ -38,10 +38,10 @@ namespace ConverterLibrary
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
-                    //open connection
+                    // Open connection
                     conn.Open();
 
-                    //execute the SQLCommand
+                    // Execute the SQLCommand
                     SqlDataReader dr = cmd.ExecuteReader();
 
                     // Check if there are records
@@ -66,7 +66,7 @@ namespace ConverterLibrary
                     }
                     else
                     {
-                        //Console.WriteLine("No data found.");
+                        // Console.WriteLine("No data found.");
                     }
 
                     dr.Close();
@@ -74,7 +74,7 @@ namespace ConverterLibrary
             }
             catch (Exception ex)
             {
-                //display error message
+                // Display error message
                 Console.WriteLine("Exception: " + ex.Message);
             }
 
@@ -105,10 +105,10 @@ namespace ConverterLibrary
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
-                    //open connection
+                    // Open connection
                     conn.Open();
 
-                    //execute the SQLCommand
+                    // Execute the SQLCommand
                     SqlDataReader dr = cmd.ExecuteReader();
 
                     // Check if there are records
@@ -132,7 +132,7 @@ namespace ConverterLibrary
                     }
                     else
                     {
-                        //Console.WriteLine("No data found.");
+                        // Console.WriteLine("No data found.");
                     }
 
                     dr.Close();
@@ -140,7 +140,7 @@ namespace ConverterLibrary
             }
             catch (Exception ex)
             {
-                //display error message
+                // Display error message
                 Console.WriteLine("Exception: " + ex.Message);
             }
 
