@@ -49,8 +49,8 @@ namespace ConverterLibrary
                     {
                         while (dr.Read())
                         {
-                            User user = new User() 
-                            { 
+                            User user = new User()
+                            {
                                 Id = dr.GetInt32("Id"),
                                 Username = dr.GetString("Username"),
                                 FirstName = dr.GetString("FirstName"),
@@ -80,7 +80,72 @@ namespace ConverterLibrary
 
             return users;
         }
+
+
+        public static List<Bike> loadBikes()
+        {
+            string connString = @"Server=(localdb)\MSSQLLocalDB; Database = master; Trusted_Connection = True;";
+            List<Bike> bikes = new List<Bike>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+
+                    string query = @"
+                        SELECT [Id]
+                              ,[Model]
+                              ,[Price]
+                              ,[Type]
+                              ,[Color]
+                              ,[Quantity]
+                              ,[Size]
+                          FROM [ExampleDatabase].[dbo].[Bikes]
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    //open connection
+                    conn.Open();
+
+                    //execute the SQLCommand
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    // Check if there are records
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                               Bike bike = new Bike()
+                            {
+                                Id = dr.GetInt32("Id"),
+                                Model = dr.GetString("Model"),
+                                Price = dr.GetInt32("Price"),
+                                Type = dr.GetString("Type"),
+                                Color = dr.GetString("Color"),
+                                Quantity = dr.GetInt32("Quantity"),
+                                Size = dr.GetInt32("Size"),
+                            };
+
+                            bikes.Add(bike);
+                        }
+                    }
+                    else
+                    {
+                        //Console.WriteLine("No data found.");
+                    }
+
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                //display error message
+                Console.WriteLine("Exception: " + ex.Message);
+            }
+
+            return bikes;
+        }
     }
 }
-    
 

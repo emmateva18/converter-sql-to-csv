@@ -18,10 +18,11 @@ namespace ConverterLibrary
             // Set delimiter
             string delimiter = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
-            List<User> users = ImportData.loadUsers();
+            // List<User> users = ImportData.loadUsers();
+            List<Bike> bikes = ImportData.loadBikes();
 
             // Call function for exporting data
-            ExportData.ListToCsv(users, path, delimiter);
+            ExportData.ListToCsv(bikes, path, delimiter);
         }
     }
 }
