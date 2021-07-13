@@ -1,0 +1,101 @@
+Id,Model,Maker,Year,Price,Color
+1,QX56,Infiniti,2012,$7647.55,Indigo
+2,GTI,Volkswagen,2009,$3002.37,Orange
+3,Celica,Toyota,2005,$4660.41,Purple
+4,G-Series 2500,Chevrolet,1998,$4066.20,Aquamarine
+5,Camaro,Chevrolet,1980,$6756.55,Puce
+6,Pacifica,Chrysler,2004,$3363.89,Aquamarine
+7,Pacifica,Chrysler,2006,$7843.52,Violet
+8,Ram Van 1500,Dodge,2002,$7706.76,Turquoise
+9,Cougar,Mercury,1985,$4736.73,Fuscia
+10,S-Class,Mercedes-Benz,1987,$6591.68,Turquoise
+11,Navigator L,Lincoln,2011,$3534.91,Violet
+12,Terraza,Buick,2005,$5864.33,Red
+13,9-3,Saab,2001,$4081.04,Khaki
+14,Corvette,Chevrolet,1992,$3442.23,Turquoise
+15,B-Series,Mazda,2009,$7523.37,Maroon
+16,Durango,Dodge,1999,$6369.00,Teal
+17,Bravada,Oldsmobile,2001,$3373.66,Green
+18,Elantra,Hyundai,2003,$4105.46,Purple
+19,Savana 1500,GMC,1996,$3277.67,Khaki
+20,Karif,Maserati,1990,$3820.74,Khaki
+21,Stratus,Dodge,1998,$7464.17,Mauv
+22,Blazer,Chevrolet,1998,$3227.26,Green
+23,88,Oldsmobile,1999,$7679.41,Yellow
+24,Corvette,Chevrolet,1986,$4315.10,Aquamarine
+25,Land Cruiser,Toyota,1997,$5588.44,Goldenrod
+26,Maxima,Nissan,2008,$3120.78,Yellow
+27,Tahoe,Chevrolet,1996,$4997.22,Violet
+28,H2,Hummer,2009,$6733.35,Blue
+29,S-Series,Saturn,1998,$7444.84,Red
+30,X6,BMW,2012,$7885.76,Khaki
+31,PT Cruiser,Chrysler,2005,$5715.72,Aquamarine
+32,Scoupe,Hyundai,1994,$5234.25,Green
+33,Venza,Toyota,2010,$4437.01,Violet
+34,Voyager,Plymouth,1999,$7173.55,Maroon
+35,Impreza,Subaru,2001,$3005.39,Blue
+36,3500 Club Coupe,GMC,1996,$4507.28,Teal
+37,Rogue,Nissan,2008,$3868.69,Blue
+38,MKX,Lincoln,2010,$5686.39,Red
+39,Suburban 1500,Chevrolet,1999,$3669.20,Blue
+40,2e,Aptera,2009,$4722.46,Crimson
+41,Express 2500,Chevrolet,2002,$7049.54,Turquoise
+42,Grand Prix,Pontiac,1981,$7557.61,Turquoise
+43,MR2,Toyota,1992,$5638.83,Violet
+44,Nitro,Dodge,2008,$6344.21,Puce
+45,Yukon XL 1500,GMC,2012,$7854.06,Khaki
+46,Rio,Kia,2010,$3824.29,Blue
+47,Continental,Bentley,2005,$4698.20,Orange
+48,Roadmaster,Buick,1993,$4765.64,Pink
+49,Talon,Eagle,1996,$3043.33,Turquoise
+50,Element,Honda,2011,$5949.36,Green
+51,Econoline E350,Ford,1992,$4670.17,Yellow
+52,Vision,Eagle,1995,$5076.20,Violet
+53,Aerio,Suzuki,2004,$7693.40,Turquoise
+54,MKZ,Lincoln,2008,$5827.10,Orange
+55,Mazda2,Mazda,2012,$7264.88,Aquamarine
+56,S-Type,Jaguar,2002,$7264.31,Crimson
+57,Bronco,Ford,1990,$3612.63,Mauv
+58,SRX,Cadillac,2010,$7407.45,Maroon
+59,SL-Class,Mercedes-Benz,1999,$7038.52,Violet
+60,F-Series,Ford,2008,$7559.41,Turquoise
+61,Town Car,Lincoln,2011,$4261.37,Red
+62,Gallardo,Lamborghini,2010,$5290.94,Pink
+63,Ram Van B150,Dodge,1994,$5625.18,Purple
+64,Pathfinder Armada,Nissan,2004,$3281.74,Indigo
+65,911,Porsche,2012,$7007.04,Maroon
+66,Routan,Volkswagen,2010,$5958.61,Mauv
+67,Ram 1500,Dodge,1997,$6903.32,Red
+68,Voyager,Plymouth,1997,$7085.62,Purple
+69,Suburban 2500,Chevrolet,2011,$4784.66,Aquamarine
+70,Firefly,Pontiac,1991,$4725.00,Red
+71,S-Class,Mercedes-Benz,1998,$3352.32,Blue
+72,599 GTB Fiorano,Ferrari,2010,$4373.19,Crimson
+73,200,Audi,1991,$5040.41,Orange
+74,Land Cruiser,Toyota,2010,$3985.56,Aquamarine
+75,Continental,Bentley,2011,$4180.03,Maroon
+76,Matrix,Toyota,2007,$7294.41,Yellow
+77,Beretta,Chevrolet,1996,$7036.63,Maroon
+78,Lucerne,Buick,2010,$6373.59,Crimson
+79,Riviera,Buick,1993,$7129.15,Goldenrod
+80,Firebird,Pontiac,1990,$6266.16,Pink
+81,850,Volvo,1994,$5909.67,Goldenrod
+82,LX,Lexus,1998,$6487.00,Fuscia
+83,Samurai,Suzuki,1994,$3589.75,Orange
+84,PT Cruiser,Chrysler,2002,$6975.97,Violet
+85,Passat,Volkswagen,2010,$6474.18,Blue
+86,S-Class,Mercedes-Benz,1987,$6343.43,Crimson
+87,Diablo,Lamborghini,2000,$3882.54,Pink
+88,2500 Club Coupe,GMC,1993,$6049.22,Khaki
+89,Colt,Plymouth,1992,$6902.51,Turquoise
+90,2500 Club Coupe,GMC,1993,$3303.36,Blue
+91,1500,GMC,1998,$6368.11,Aquamarine
+92,Axiom,Isuzu,2004,$3711.81,Pink
+93,Town Car,Lincoln,1996,$5782.58,Fuscia
+94,Golf,Volkswagen,2010,$3739.05,Indigo
+95,Explorer Sport Trac,Ford,2001,$6743.82,Pink
+96,LeMans,Pontiac,1993,$5929.69,Khaki
+97,Cutlass,Oldsmobile,1998,$3580.70,Maroon
+98,Catera,Cadillac,2000,$7907.35,Red
+99,G-Series G10,Chevrolet,1994,$5767.34,Orange
+100,Regal,Buick,1998,$7726.43,Yellow
