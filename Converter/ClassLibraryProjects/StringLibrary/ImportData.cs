@@ -82,10 +82,10 @@ namespace ConverterLibrary
         }
 
 
-        public static List<Bike> loadBikes()
+        public static List<Car> loadCars()
         {
             string connString = @"Server=(localdb)\MSSQLLocalDB; Database = master; Trusted_Connection = True;";
-            List<Bike> bikes = new List<Bike>();
+            List<Car> Cars = new List<Car>();
 
             try
             {
@@ -95,12 +95,11 @@ namespace ConverterLibrary
                     string query = @"
                         SELECT [Id]
                               ,[Model]
+                              ,[Maker]
                               ,[Price]
-                              ,[Type]
+                              ,[Year]
                               ,[Color]
-                              ,[Quantity]
-                              ,[Size]
-                          FROM [ExampleDatabase].[dbo].[Bikes]
+                          FROM [ExampleDatabase].[dbo].[Cars]
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -116,18 +115,17 @@ namespace ConverterLibrary
                     {
                         while (dr.Read())
                         {
-                               Bike bike = new Bike()
+                               Car Car = new Car()
                             {
                                 Id = dr.GetInt32("Id"),
                                 Model = dr.GetString("Model"),
+                                Maker = dr.GetString("Model"),
                                 Price = dr.GetInt32("Price"),
-                                Type = dr.GetString("Type"),
-                                Color = dr.GetString("Color"),
-                                Quantity = dr.GetInt32("Quantity"),
-                                Size = dr.GetInt32("Size"),
+                                Year = dr.GetInt32("Type"),
+                                Color = dr.GetString("Color")
                             };
 
-                            bikes.Add(bike);
+                            Cars.Add(Car);
                         }
                     }
                     else
@@ -144,7 +142,7 @@ namespace ConverterLibrary
                 Console.WriteLine("Exception: " + ex.Message);
             }
 
-            return bikes;
+            return Cars;
         }
     }
 }
