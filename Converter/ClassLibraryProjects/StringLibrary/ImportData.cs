@@ -14,9 +14,8 @@ namespace ConverterLibrary
     {
 
         // Import data from SQL db
-        public static List<User> loadUsers()
+        public static List<User> loadUsers(string connString)
         {
-            string connString = @"Server=(localdb)\MSSQLLocalDB; Database = master; Trusted_Connection = True;";
             List<User> users = new List<User>();
 
             try
@@ -33,7 +32,7 @@ namespace ConverterLibrary
                               ,[Address]
                               ,[City]
                               ,[Age]
-                          FROM [ExampleDatabase].[dbo].[Users]
+                          FROM [dbo].[Users]
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -82,10 +81,9 @@ namespace ConverterLibrary
         }
 
 
-        public static List<Car> loadCars()
+        public static List<Car> loadCars(string connString)
         {
-            string connString = @"Server=(localdb)\MSSQLLocalDB; Database = master; Trusted_Connection = True;";
-            List<Car> Cars = new List<Car>();
+            List<Car> cars = new List<Car>();
 
             try
             {
@@ -99,7 +97,7 @@ namespace ConverterLibrary
                               ,[Price]
                               ,[Year]
                               ,[Color]
-                          FROM [ExampleDatabase].[dbo].[Cars]
+                          FROM [dbo].[Cars]
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
@@ -115,17 +113,17 @@ namespace ConverterLibrary
                     {
                         while (dr.Read())
                         {
-                               Car Car = new Car()
+                               Car car = new Car()
                             {
                                 Id = dr.GetInt32("Id"),
                                 Model = dr.GetString("Model"),
-                                Maker = dr.GetString("Model"),
+                                Maker = dr.GetString("Maker"),
                                 Price = dr.GetInt32("Price"),
-                                Year = dr.GetInt32("Type"),
+                                Year = dr.GetInt32("Year"),
                                 Color = dr.GetString("Color")
                             };
 
-                            Cars.Add(Car);
+                            cars.Add(car);
                         }
                     }
                     else
@@ -142,7 +140,7 @@ namespace ConverterLibrary
                 Console.WriteLine("Exception: " + ex.Message);
             }
 
-            return Cars;
+            return cars;
         }
     }
 }

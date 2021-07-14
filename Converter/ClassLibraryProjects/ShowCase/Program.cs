@@ -11,18 +11,27 @@ namespace ConverterLibrary
     {
         static void Main(string[] args)
         {
-            // Set path to Documents folder and file name to "export.csv"
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            path = Path.Combine(path, "export.csv");
+
 
             // Set delimiter
             string delimiter = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
-            // List<User> users = ImportData.loadUsers();
-            List<Car> cars = ImportData.loadCars();
+            // Set connection
+            string connString = @"Server=(localdb)\MSSQLLocalDB; Database = ExampleDatabase; Trusted_Connection = True;";
+
+            List<User> users = ImportData.loadUsers(connString);
+            List<Car> cars = ImportData.loadCars(connString);
+
+            // Set path to Documents folder
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string fullPath;
 
             // Call function for exporting data
-            ExportData.ListToCsv(cars, path, delimiter);
+            fullPath = Path.Combine(path, "exportCars.csv");
+            ExportData.ListToCsv(cars, fullPath, delimiter);
+
+            fullPath = Path.Combine(path, "exportUsers.csv");
+            ExportData.ListToCsv(users, fullPath, delimiter);
         }
     }
 }
