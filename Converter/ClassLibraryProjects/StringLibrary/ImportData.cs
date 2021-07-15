@@ -142,6 +142,57 @@ namespace ConverterLibrary
 
             return cars;
         }
+        
+        
+        public static List<T> LoadTable<T>(string connString)
+            where T : class, new()
+        {
+            List<T> list = new List<T>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    // Open connection
+                    conn.Open();
+
+                    string columns = string.Join(',', typeof(T).GetProperties().Select(x => x.Name));
+                    string query = @$"SELECT {columns} FROM [dbo].[{nameof(T)}s]";
+
+                    DbCommand cmd = conn.CreateCommand();
+
+                    // Execute the SQLCommand
+                    DbDataReader dataReader = cmd.ExecuteReader();
+
+                    // Check if there are records
+                    if (dataReader.HasRows)
+                    {
+                        List<PropertyInfo> properties = typeof(T).GetProperties().ToList();
+
+                        while (dataReader.Read())
+                        {
+                            T row = new T();
+
+                            foreach (var propertyInfo in properties)
+                            {
+                                SetValue(row, dataReader, propertyInfo);
+                            }
+
+                            list.Add(row);
+                        }
+                    }
+
+                    dataReader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Display error message
+                Console.WriteLine("Exception: " + ex.Message);
+            }
+
+            return list;
+        }
     }
 }
 
